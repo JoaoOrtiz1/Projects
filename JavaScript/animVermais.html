@@ -1,0 +1,93 @@
+<html>
+    <body>
+        <style>
+            
+            .box{
+                width: 200px;
+                height: 200px;
+                background-color: red;
+                margin-left: 0;
+            }
+            .animEsquerda{
+                transition: 1s;
+                margin-left: 100px;
+            }
+            .animDireita{
+                transition: 1s;
+                margin-top: 100px;
+            }
+            
+            .conteudo h2 span{
+                font-size: 13px;
+                cursor: pointer;
+            }
+
+
+            
+            .conteudo p{
+                overflow: hidden;
+                height: 15px;
+                transition: 1s;
+            }
+            .mostrar{
+                height: 200px !important;
+            }
+
+            
+        </style>
+        <div class="box"></div>
+        <div class="conteudo">
+            <h2>Titulo do conteúdo <span>Ver mais</span></h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Fusce lobortis eleifend lectus vel auctor. Morbi 
+                efficitur venenatis risus, ut eleifend mi tristique 
+                sit amet. Cras commodo finibus nisl, et bibendum 
+                ante blandit eu. Aenean eleifend eu neque eget 
+                semper. In lectus mauris, tincidunt id accumsan eu, 
+                sodales ac ipsum. Sed et ipsum mattis, lacinia lorem 
+                quis, auctor justo. Suspendisse sed dictum eros, eu 
+                vulputate sem. Nullam faucibus fringilla mauris et 
+                facilisis. Vestibulum dictum nulla quis metus varius 
+                molestie. Suspendisse finibus rhoncus nulla sed 
+                porttitor. Nullam vitae leo gravida, malesuada lacus 
+                et, commodo enim. Morbi sit amet magna eu massa 
+                aliquam. Ut gravida sollicitudin lectus vitae mattis. Praesent eu feugiat justo</p>
+        </div>
+        <script>
+            
+            var box = document.querySelectorAll(".box")[0];
+            
+            setTimeout(()=>{
+                box.classList.add("animEsquerda");
+            },1000);
+            
+           
+            box.addEventListener("click", ()=>{
+                box.classList.add("animDireita");
+            });    
+            
+           
+            var paragrafo = document.querySelector(".conteudo p");
+            var texto = document.querySelector(".conteudo span");
+            
+            texto.addEventListener("click", ()=>{
+            paragrafo.classList.add("mostrar");
+            if(paragrafo.classList.contains("mostrar")){
+                texto.innerHTML = "Ver menos";
+                texto.addEventListener("click", ()=>{
+                    paragrafo.classList.remove("mostrar");
+                    texto.innerHTML = "Ver mais";
+                    
+                })
+                }else{
+                    paragrafo.classList.add("mostrar");
+                    texto.innerHTML = "Ver menos";
+                    
+                }
+            })
+                
+
+            
+        </script>
+    </body>
+</html>
