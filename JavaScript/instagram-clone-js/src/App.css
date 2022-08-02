@@ -1,0 +1,210 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(220,220,220);
+}
+.center{
+    display: flex;
+    margin: 0 auto;
+    max-width: 1100px;
+}
+.header{
+    padding: 10px 0;
+    background-color: white;
+    border-bottom: 2px solid rgb(230,230,230);
+}
+
+.header_logo{
+    width: 50%
+}
+
+.header__loginForm{
+    width: 50%;
+    text-align: right;
+}
+
+
+.header__loginForm form{
+    display: inline-block;
+}
+
+.header__loginForm input[type=text],
+.header__loginForm input[type=password]{
+    width: 190px;
+    margin-right: 5px;
+    height: 23px;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+}
+
+.header__loginForm input[type=submit]{
+    background-color: #0095f6;
+    color:white;
+    cursor: pointer;
+    font-size: 15px;
+    height: 23px;
+    width: 80px;
+    padding: 0;
+    border-radius: 7px;
+}
+
+.bcriarConta{
+    display: inline-block;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.header__loginInfo{
+    text-align: right;
+    width: 50%;
+}
+
+.header__loginInfo a{
+    margin: 0 10px;
+    background-color: #0095f6;
+    color:white;
+    cursor: pointer;
+    font-size: 15px;
+    height: 23px;
+    width: 80px;
+    padding: 5px 10px;
+    border-radius: 7px;
+    text-decoration: none;
+}
+
+.modalCriarconta,
+.modalUpload{
+    display: none;
+    position: fixed;
+    left:0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.formCriarconta,
+.formUpload{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+    background-color: white;
+}
+
+.formCriarconta h2,
+.formUpload h2{
+    text-align: center;
+    margin-bottom: 1%;
+}
+.formCriarconta input,
+.formUpload input{
+    width: 100%;
+    height: 30px;
+    padding-left: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+}
+
+.formCriarconta input[type=submit],
+.formUpload input[type=submit]{
+    background-color: #0095f6;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.modalClose,
+.modalUploadClose{
+    position: relative;
+    right: -10px;
+    top: -10px;
+    cursor: pointer;
+    width: 25px;
+    height: 20px-;
+    background-color: #0095f6;
+    border-radius: 25px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+
+
+.formUpload progress{
+    position: relative;
+    right: -250px;
+    top: -10px;
+}
+
+.postSingle{
+    
+    max-width: 700px;
+    margin: 10px auto;
+
+}
+
+.postSingle img{
+    width: 100%;  
+    border-radius: 15px; 
+}
+
+.postSingle p{
+    padding: 10px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.postSingle form{
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+}
+.postSingle textarea{
+    width: 100%;
+    height: 120px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.postSingle input[type=submit]{
+    background-color: #0095f6;
+    cursor: pointer;
+    border: 0;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.coments{
+    font-size: 14px;
+    text-align: left;
+}
+
+.comment-single{
+    background-color: white;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.comment-single b{
+    margin-left: 8px;
+    font-size: 15px;
+}
+
+.titulocomments{
+    margin-left: 8px;
+    font-size: 15px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: left; 
+    padding: 10px;
+    margin: 10px auto;
+    margin-bottom: 0;
+}
