@@ -25,7 +25,12 @@ function Post(props){
 
     return(
         <div className="postSingle">
+          
+            {
+              (props.info.image)?
               <img src={props.info.image}/>
+              :<video src={props.info.video} controls/>
+              }
               <p><b>{props.info.userName}</b>: {props.info.titulo}</p>
               <div className="titulocomments"><b>Comentarios: </b></div>
               <div className = "coments">
@@ -39,6 +44,7 @@ function Post(props){
                     })
                 }
               </div>
+              
               {
                 (props.user)?
               <form onSubmit={(e)=>comentar(props.id,e)}>
