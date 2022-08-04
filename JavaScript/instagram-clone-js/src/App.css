@@ -85,10 +85,14 @@ body{
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
+    
 }
-
+.formVideoUpload{
+    display: none;
+}
 .formCriarconta,
-.formUpload{
+.formImageUpload,
+.formVideoUpload{
     position: absolute;
     left: 50%;
     top: 50%;
@@ -97,15 +101,18 @@ body{
     width: 80%;
     max-width: 700px;
     background-color: white;
+    border-radius: 15px;
 }
 
 .formCriarconta h2,
-.formUpload h2{
+.formImageUpload h2,
+.formVideoUpload h2{
     text-align: center;
     margin-bottom: 1%;
 }
 .formCriarconta input,
-.formUpload input{
+.formImageUpload input,
+.formVideoUpload input{
     width: 100%;
     height: 30px;
     padding-left: 10px;
@@ -114,7 +121,8 @@ body{
 }
 
 .formCriarconta input[type=submit],
-.formUpload input[type=submit]{
+.formImageUpload input[type=submit],
+.formVideoUpload input[type=submit]{
     background-color: #0095f6;
     color: white;
     font-size: 16px;
@@ -122,7 +130,9 @@ body{
 }
 
 .modalClose,
-.modalUploadClose{
+.modalUploadClose,
+.Bimage b,
+.Bvideo b{
     position: relative;
     right: -10px;
     top: -10px;
@@ -137,7 +147,8 @@ body{
 }
 
 
-.formUpload progress{
+.formImageUpload progress,
+.formVideoUpload progress{
     position: relative;
     right: -250px;
     top: -10px;
@@ -150,9 +161,13 @@ body{
 
 }
 
-.postSingle img{
+.postSingle img,
+.postSingle video{
     width: 100%;  
     border-radius: 15px; 
+}
+.postSingle video{
+    width: 70%;
 }
 
 .postSingle p{
@@ -207,4 +222,12 @@ body{
     padding: 10px;
     margin: 10px auto;
     margin-bottom: 0;
+}
+
+.Bvideo b,
+.Bimage b{
+    margin-left: 500px;
+    padding: 0 10px;
+    color: black;
+    font-size: 18px;
 }
