@@ -1,0 +1,65 @@
+        <%- include("partials/header.html") %>
+        <section class="noticia-destaque"> 
+            <div class="center">
+                <div class="img-destaque">
+                    <div class="overlay-destaque"></div>
+                    <a href="/<%= posts[0].slug %>">
+                        <div class="title-destaque-descricao">
+                            <h2><%= posts[0].titulo %></h2>
+                            <p><%- posts[0].descri %>...</p>
+                        </div>
+                    </a>
+                    <img src="<%= posts[0].imagem %>"/>
+                </div>
+            </div>
+        </section>
+        <section class="outras-noticias">
+            <div class="title-outras">
+                <h2>Últimas Notícias</h2>
+                <br><br>
+                <div class="center">
+                    <div class="ultimas">
+                        <% for(let i = 1; i < 3; i++){ %>
+                        <div class="box-ultimas">
+                            <img src="<%= posts[i].imagem %>"/>
+                            <h3><%= posts[i].categoria %></h3>
+                            <h2><%= posts[i].titulo %></h2>
+                            <p><%- posts[i].descri %></p>
+                            <div class="button-read">
+                                <a href="<%= posts[i].slug %>">LER MAIS</a>
+                            </div>
+                        </div>
+                        <% } %> 
+                        <% for(let i = 3; i < postc; i++){ %>
+                        <div class="box-ultimas1">
+                            <div class="overlay-last"></div>
+                            <a href="<%= posts[i].slug %>">
+                                <div class="last-texto1">
+                                    <h4><%= posts[i].titulo %></h4>
+                                    <h5><%= posts[i].descri %></h5>
+                                </div>
+                            </a>
+                            <img src="<%= posts[i].imagem %>"/>
+                        </div>
+                        <% } %> 
+                    </div>
+                    <div class="mais-lidas">
+                        <h3>Mais Lidas</h3>
+                        <% for(let i = 0; i < postsTop.length; i++){ %>
+                        <a href="<%= postsTop[i].slug %>">
+                            <div class="most-read">
+                                <img src="<%= postsTop[i].imagem %>"/>
+                                <div class="texto-single">
+                                    <h3><%= postsTop[i].titulo %> </h3>
+                                    <p><%- postsTop[i].descri %>... - <span>(<%= postsTop[i].views %>) views</span> </p>
+                                </div>
+                            </div>
+                        </a>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <%- include("partials/footer.html") %>
+    </body>
+</html>
