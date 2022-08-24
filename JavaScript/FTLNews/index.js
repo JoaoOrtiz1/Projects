@@ -6,7 +6,7 @@ var bodyParser = require("body-parser");
 
 const Posts = require("./Posts.js")
 
-mongoose.connect("mongodb+srv://root:NK7YbbVz8K6co5ln@cluster0.vafoqkn.mongodb.net/ortiz?retryWrites=true&w=majority",{useNewUrlParser:true, useUnifiedTopology:true}).then(()=>{
+mongoose.connect("login mongodb",{useNewUrlParser:true, useUnifiedTopology:true}).then(()=>{
     console.log("logado com sucesso");
 }).catch((err)=>{
     console.log(err.menssage)
@@ -86,4 +86,3 @@ app.get("/:slug",(req,res)=>{
 app.listen(4000,()=>{
     console.log("server rodando!")
 });
-
