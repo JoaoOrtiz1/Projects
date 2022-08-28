@@ -4,7 +4,7 @@ Projetos em Python e JavaScript que fazem parte do meu aprendizado.
 Link site de noticias FTLNews
 
 
-ftlnews1.com
+https://ftlnews1.com
 
 
 Link do clone do instagram 
