@@ -1,5 +1,5 @@
 # Projects
-Projetos em Python e JavaScript que fazem parte do meu aprendizado.
+Projetos em JavaScript e Python que fazem parte do meu aprendizado.
 
 Link site de noticias FTLNews
 
