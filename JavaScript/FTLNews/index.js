@@ -3,10 +3,10 @@ const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
 var bodyParser = require("body-parser");
+const Posts = require("./Posts.js");
+const ReactDOM = require("react-dom");
 
-const Posts = require("./Posts.js")
-
-mongoose.connect("login mongodb",{useNewUrlParser:true, useUnifiedTopology:true}).then(()=>{
+mongoose.connect("mongodb+srv://servermongodb",{useNewUrlParser:true, useUnifiedTopology:true}).then(()=>{
     console.log("logado com sucesso");
 }).catch((err)=>{
     console.log(err.menssage)
@@ -52,19 +52,35 @@ app.get("/", (req,res)=>{
                 res.render("home",{posts:posts,postc:postc,postsTop:postsTop});
             });
         });
-        
     }else{
         Posts.find({titulo:{$regex:req.query.busca,$options:"i"}},(err,posts)=>{
             res.render("busca",{posts:posts});
-        })
+        });
     }
 });
 
 app.get("/:slug",(req,res)=>{
     Posts.findOneAndUpdate({slug:req.params.slug},{$inc:{views:1}},{new: true},(err,resposta)=>{
         if(resposta != null){
-            Posts.find({}).sort({'views': -1}).limit(5).exec((err,postsTop)=>{
-                postsTop = postsTop.map((val)=>{
+        Posts.find({}).sort({'views': -1}).limit(5).exec((err,postsTop)=>{
+            postsTop = postsTop.map((val)=>{
+                return {
+                    titulo: val.titulo,
+                    conteudo: val.conteudo,
+                    descri: val.descri,
+                    imagem: val.imagem,
+                    slug: val.slug,
+                    categoria: val.categoria,
+                    views: val.views
+                }
+            });
+            res.render("single",{noticia:resposta,postsTop:postsTop});
+        });
+        }else if(req.params.slug == "contato"){
+            res.render("contato");
+        }else if(req.params.slug == "mais-lidas"){
+            Posts.find({}).sort({'views': -1}).limit(7).exec((err,maisLidas)=>{
+                maisLidas = maisLidas.map((val)=>{
                     return {
                         titulo: val.titulo,
                         conteudo: val.conteudo,
@@ -75,14 +91,55 @@ app.get("/:slug",(req,res)=>{
                         views: val.views
                     }
                 });
-                res.render("single",{noticia:resposta,postsTop:postsTop});
+                res.render("mais-lidas",{maisLidas:maisLidas});
             });
         }else{
-            res.redirect("/")
+            Posts.find({}).sort({'_id': +1}).limit(7).exec((err,menuPage)=>{
+                if(req.params.slug == "tecnologia"){
+                    menuPage = menuPage.map((val)=>{
+                        return {
+                                titulo: val.titulo,
+                                conteudo: val.conteudo,
+                                descri: val.descri,
+                                imagem: val.imagem,
+                                slug: val.slug,
+                                categoria: val.categoria,
+                                views: val.views,
+                                nLimit: 3,
+                                nStart: 0,
+                                catTitulo:"Tecnologia"
+                        }
+                    });
+                    res.render("menuPage",{menuPage:menuPage});
+                }else{
+                    menuPage = menuPage.map((val)=>{
+                        return {
+                                titulo: val.titulo,
+                                conteudo: val.conteudo,
+                                descri: val.descri,
+                                imagem: val.imagem,
+                                slug: val.slug,
+                                categoria: val.categoria,
+                                views: val.views,
+                                nLimit: 7,
+                                nStart: 3,
+                                catTitulo:"Programação"
+                        }
+                    });
+                    res.render("menuPage",{menuPage:menuPage});
+                }
+            });
         }
     })
 })
 
+
+
+
 app.listen(4000,()=>{
     console.log("server rodando!")
 });
+
+
+
+

@@ -11,14 +11,39 @@
             <title>FTL News</title>
             <div class="center">
                 <div class="logo">
+                    <div id="menu">
+                        <div id="menu-bar" onclick="menuClick()">
+                            <div id="bar1" class="bar"> </div>
+                            <div id="bar2" class="bar"> </div>
+                            <div id="bar3" class="bar"> </div>
+                        </div>
+                    </div>
                     <h2><a href="/"><span style="font-weight: lighter;">FTL</span><b>News</b></a></h2>
+                    
                 </div>
                 <div class="form-busca">
                     <form action="/">
-                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <i class="fa fa-search" aria-hidden="true" name="search"></i>
                         <input type="text" placeholder="Buscar" name="busca"/>
                     </form>
                 </div>
             </div>
         </header>
-       
+        <div id="menu">
+            <ul class="nav" id="nav">
+                <li class="li"><a href="/"> <i class="fa fa-home" aria-hidden="true"><span>Home</span></i></a></li>
+                <li class="li"><a href="/mais-lidas"> <i class="fa fa-book" aria-hidden="true"><span>Mais Lidas</span></i></a></li>
+                <li class="li"><a href="/programacao"> <i class="fa fa-code" aria-hidden="true"><span>Programação</span></i></a></li>
+                <li class="li"><a href="/tecnologia"> <i class="fa fa-cogs" aria-hidden="true"><span>Tecnologia</span></i></a></li>
+                <li class="li"><a href="/contato"> <i class="fa fa-envelope-o" aria-hidden="true"><span>Contato</span></i></a></li>
+            </ul>
+        </div>
+        <div class="menuBg" id="menuBg"></div>
+        <script>
+            function menuClick(){
+                document.getElementById("menu-bar").classList.toggle("change");
+                document.getElementById("nav").classList.toggle("changeOp");
+                document.getElementById("menuBg").classList.toggle("change-bg");
+            }
+        </script>
+        

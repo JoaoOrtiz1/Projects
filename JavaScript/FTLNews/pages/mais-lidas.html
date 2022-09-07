@@ -1,0 +1,19 @@
+<%- include("partials/header.html") %>
+<div class="mais-lidas1">
+    <h3>Mais Lidas</h3>
+    <% for(let i = 0; i < maisLidas.length; i++){ %>
+        <a href="<%= maisLidas[i].slug %>">
+            <div class="most-read1">
+                <img src="<%= maisLidas[i].imagem %>"/>
+                <div class="texto-single">
+                    <h3><%= maisLidas[i].titulo %> </h3>
+                    <p><%- maisLidas[i].descri %>... - <span>(<%= maisLidas[i].views %>) views</span> </p>
+                </div>
+            </div>
+        </a>
+    <% } %>
+</div>
+</section>
+<%- include("partials/footer.html") %>
+</body>
+</html>
